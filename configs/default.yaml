@@ -1,0 +1,32 @@
+# DeepMarket default experiment config.
+# Every run copies this (plus any command-line overrides) into runs/<run_name>/config.json
+# so results are reproducible.
+
+data:
+  source: yfinance          # yfinance | csv | synthetic
+  csv_path: data/raw/sp500_stock_prices.csv   # used when source: csv (Aethereal dataset)
+  tickers: [AAPL, MSFT, AMZN, GOOGL, META, NVDA, JPM, JNJ, XOM, WMT]
+  market_tickers: [SPY, QQQ]
+  start: "2020-01-01"
+  end: "2026-10-29"
+
+features:
+  seq_len: 30               # days of history per sample
+  use_market: false         # false = Method A (stock-only), true = Method B (+SPY/QQQ)
+
+split:
+  train_frac: 0.70          # chronological, by target date
+  val_frac: 0.15            # test gets the remaining 0.15
+
+model:
+  type: lstm
+  hidden_size: 32
+  num_layers: 1
+  dropout: 0.0
+
+train:
+  batch_size: 64
+  lr: 0.001
+  epochs: 20
+  patience: 5               # early stopping on validation loss
+  seed: 42

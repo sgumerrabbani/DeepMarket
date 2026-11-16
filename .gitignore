@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Data and outputs (too big / regenerable, keep out of git)
+data/raw/
+data/processed/
+runs/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/

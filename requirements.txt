@@ -1,0 +1,13 @@
+# Core
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+torch>=2.2
+pyyaml>=6.0
+matplotlib>=3.8
+# Data
+yfinance>=0.2.40
+# Dashboard
+streamlit>=1.35
+# Tests
+pytest>=8.0
